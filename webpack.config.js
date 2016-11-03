@@ -1,10 +1,13 @@
+var LiveReloadPlugin = require('webpack-livereload-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+
 var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + '/app/index.html',
   filename: 'index.html',
   inject: 'body'
-});
+})
 
+var live
 module.exports = {
   entry: [
     './app/index.js'
@@ -17,7 +20,6 @@ module.exports = {
     extensions: ['', '.js']
   },
   devServer: {
-    host: '0.0.0.0',
     port: 8080,
     inline: true
   },
@@ -30,5 +32,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [HTMLWebpackPluginConfig]
+  plugins: [HTMLWebpackPluginConfig, LiveReloadPlugin]
 };
