@@ -2,7 +2,7 @@ var LiveReloadPlugin = require('webpack-livereload-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: __dirname + '/app/index.html',
+  template: __dirname + '/src/index.html',
   filename: 'index.html',
   inject: 'body'
 })
@@ -10,7 +10,7 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 var live
 module.exports = {
   entry: [
-    './app/index.js'
+    './src/index.js'
   ],
   output: {
     path: __dirname + '/dist',
