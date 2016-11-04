@@ -1,12 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import App from './App'
+import { Router, Route, hashHistory } from 'react-router'
 
-var Hello = React.createClass({
-  render: function () {
-    return (
-      <div>Hello world, here is React!</div>
-    )
-  }
-});
 
-ReactDOM.render(<Hello />, document.getElementById('app'));
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+)
