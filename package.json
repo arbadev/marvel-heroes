@@ -1,7 +1,7 @@
 {
-  "name": "github-battle",
+  "name": "react-workflow",
   "version": "1.0.0",
-  "description": "react tutorial ",
+  "description": "React workflow",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --progress --colors",
@@ -9,7 +9,8 @@
     "build": "webpack --watch --colors"
   },
   "keywords": [
-    "react"
+    "react",
+    "work-flow"
   ],
   "author": "Andres Barradas",
   "license": "ISC",
