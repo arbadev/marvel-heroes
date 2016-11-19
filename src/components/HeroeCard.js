@@ -3,52 +3,47 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import RaisedButton from 'material-ui/RaisedButton'
 import Avatar from 'material-ui/Avatar'
 import {red500, grey50, yellow500} from 'material-ui/styles/colors'
+import CardInfo from './CardInfo'
 
-const cardStyle = {
-  marginTop: 5,
-  display: 'block',
-  width: '30vw',
-  height: '45vh',
-  backgroundColor: yellow500
+const styles = {
+  cardAvatarStyle : {
+    float: 'left',
+    marginRight: '1vw',
+    marginTop: '.5vh'
+  },
+  cardStyle : {
+    marginTop: 5,
+    width: '30vw',
+    height: '5vh',
+    backgroundColor: yellow500,
+  },
+  cardInfoStyle: {
+    float:'left',
+    clear: 'left'
+  }
 }
-const cardHeaderStyle = {
-  float: 'left',
-  marginRight: '1vw',
-  fontSize: '63px'
-}
-const subtitleStyle = {
-  fontSize: '10px'
-}
-const style = {
-  fontSize: '5px'
-}
+
 class HeroeCard extends Component {
 
   render() {
     return (
-      <Card style={cardStyle} >
-        <div >
+      <div>
+        <Card style={styles.cardStyle} >
           <div id="container">
-            <div style={cardHeaderStyle}>
-              <Avatar src="../public/Marvel_logo.png" size={130}/>
+
+            <div style={styles.cardAvatarStyle}>
+              <Avatar src="../public/Marvel_logo.png" size={150}/>
             </div>
+
             <div>
-              <CardHeader
-                title="SUPER HERO"
-                subtitle= "Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                 aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                 ullamco laboris nisi ut aliquip."
-                subtitleStyle={subtitleStyle}/>
+              <CardTitle
+                title="SUPER HERO"/>
             </div>
+
           </div>
-          <RaisedButton
-            label="View more"
-            backgroundColor={red500}
-            labelColor={grey50}
-            style= { style} />
-        </div>
-      </Card>
+        </Card>
+        <CardInfo/>
+      </div>
     )
   }
 }

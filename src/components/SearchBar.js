@@ -9,7 +9,7 @@ import FontIcon from 'material-ui/FontIcon'
 const iconStyles = {
   marginRight: 24,
   marginTop: 12,
-  fontSize: '36px'
+  fontSize: '24px'
 }
 const brandStyle = {
   height: 50,
