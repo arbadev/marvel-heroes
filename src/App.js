@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import NavLink from './components/NavLink'
-import SearchBar from './components/SearchBar'
+import Home from './components/Home'
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <SearchBar/>
+        <Home/>
       </MuiThemeProvider>
     )
   }

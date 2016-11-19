@@ -2,13 +2,8 @@ import React, { Component } from 'react'
 import '../styles/SearchBar.scss'
 
 import AppBar from 'material-ui/AppBar'
-import Avatar from 'material-ui/Avatar'
-import IconButton from 'material-ui/IconButton'
-import NavigationClose from 'material-ui/svg-icons/navigation/close'
-import FlatButton from 'material-ui/FlatButton'
 import AutoComplete from 'material-ui/AutoComplete'
 import FontIcon from 'material-ui/FontIcon'
-import {blue500, red500, greenA200} from 'material-ui/styles/colors'
 
 
 const iconStyles = {
