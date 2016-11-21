@@ -47,7 +47,6 @@ class HeroeCard extends Component {
       <div style={styles.wrapperStyle}>
 
         <Card style={styles.cardStyle} >
-          <Paper style={styles.paperStyles} zDepth={0} rounded={false}/>
           <div id="container">
 
             <div style={styles.cardAvatarStyle}>

@@ -7,22 +7,22 @@ const styles = {
   cardStyle : {
     display: 'block',
     width: '30vw',
-    height: '50vh',
+    height: '45vh',
   },
   wrapperStyle: {
-    overflow: 'auto',
+    width:'100%'
   },
-  c1Style: {
-    float: 'left'
-  },
-  c2Style: {
-    float: 'right'
+  blockStyle: {
+    display: 'inline-block',
+    width: '40%',
+    backgroundColor:yellow500,
+    margin:'0 auto',
+    marginLeft: '5%',
+    fontSize:'80%'
   },
   cardTextStyle: {
     position: 'absolute',
     paddingBottom: '200px'
-  },
-  raisedButtonStyles: {
   }
 }
 
@@ -42,13 +42,11 @@ class CardInfo extends Component {
               style={styles.raisedButtonStyles}/>
           </div>
           <CardTitle title="Related Comics"/>
-          <div style = {styles.wrapperStyle}>
-            <div style = {styles.c1Style}>
-              AAA
-            </div>
-            <div style = {styles.c2Style}>
-              BBB
-            </div>
+          <div style={styles.wrapperStyle}>
+            <div style={styles.blockStyle}>Comic #1</div>
+            <div style={styles.blockStyle}>Comic #2</div>
+            <div style={styles.blockStyle}>Comic #3</div>
+            <div style={styles.blockStyle}>Comic #4</div>
           </div>
         </Card>
       </div>
