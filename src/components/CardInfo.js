@@ -29,27 +29,29 @@ const styles = {
 class CardInfo extends Component {
   render() {
     return (
-      <Card style={styles.cardStyle}>
-        <div>
-          <CardText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-          </CardText>
-          <RaisedButton label="View more"
-            backgroundColor={red500}
-            labelColor={grey50}
-            style={styles.raisedButtonStyles}/>
-        </div>
-        <CardTitle title="Related Comics"/>
-        <div style = {styles.wrapperStyle}>
-          <div style = {styles.c1Style}>
-            AAA
+      <div>
+        <Card style={styles.cardStyle}>
+          <div>
+            <CardText>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+            </CardText>
+            <RaisedButton label="View more"
+              backgroundColor={red500}
+              labelColor={grey50}
+              style={styles.raisedButtonStyles}/>
           </div>
-          <div style = {styles.c2Style}>
-            BBB
+          <CardTitle title="Related Comics"/>
+          <div style = {styles.wrapperStyle}>
+            <div style = {styles.c1Style}>
+              AAA
+            </div>
+            <div style = {styles.c2Style}>
+              BBB
+            </div>
           </div>
-        </div>
-      </Card>
+        </Card>
+      </div>
     )
   }
 }

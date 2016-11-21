@@ -3,13 +3,13 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import RaisedButton from 'material-ui/RaisedButton'
 import Avatar from 'material-ui/Avatar'
 import {red500, grey50, yellow500} from 'material-ui/styles/colors'
+import Paper from 'material-ui/Paper'
 import CardInfo from './CardInfo'
 
 const styles = {
   cardAvatarStyle : {
     float: 'left',
     marginRight: '1vw',
-    marginTop: '.5vh'
   },
   cardStyle : {
     marginTop: 5,
@@ -20,6 +20,23 @@ const styles = {
   cardInfoStyle: {
     float:'left',
     clear: 'left'
+  },
+  wrapperStyle: {
+    width:'100px',
+    height:'100px',
+    position: 'relative'
+  },
+  arrowStyle: {
+    width:'10px',
+    height:'10px',
+    position:'absolute',
+
+  },
+  paperStyles: {
+    height: '55vh',
+    width: '2vw',
+    float: 'left',
+    backgroundColor: yellow500
   }
 }
 
@@ -27,8 +44,10 @@ class HeroeCard extends Component {
 
   render() {
     return (
-      <div>
+      <div style={styles.wrapperStyle}>
+
         <Card style={styles.cardStyle} >
+          <Paper style={styles.paperStyles} zDepth={0} rounded={false}/>
           <div id="container">
 
             <div style={styles.cardAvatarStyle}>
