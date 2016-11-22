@@ -8,6 +8,7 @@ const styles = {
     display: 'block',
     width: '30vw',
     height: '45vh',
+    backgroundColor: grey50,
   },
   wrapperStyle: {
     width:'100%'

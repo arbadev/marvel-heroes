@@ -50,12 +50,12 @@ class HeroeCard extends Component {
           <div id="container">
 
             <div style={styles.cardAvatarStyle}>
-              <Avatar src="../public/Marvel_logo.png" size={150}/>
+              <Avatar src={`${this.props.avatar}/portrait_medium.jpg`} size={150}/>
             </div>
 
             <div>
               <CardTitle
-                title="SUPER HERO"/>
+                title={this.props.superHeroName}/>
             </div>
 
           </div>

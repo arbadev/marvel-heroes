@@ -43,5 +43,9 @@ module.exports = {
       }
     ]
   },
+  node: {
+    dns: 'mock',
+    net: 'mock'
+  },
   plugins: [HTMLWebpackPluginConfig, LiveReloadPlugin, ExtractTextPluginConfig]
 };

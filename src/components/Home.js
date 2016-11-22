@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import SearchBar from './SearchBar'
 import HeroeCard from './HeroeCard'
+import Board from './Board'
 
 
 class Home extends Component {
@@ -9,7 +10,7 @@ class Home extends Component {
     return (
       <div>
         <SearchBar/>
-        <HeroeCard/>
+        <Board/>
       </div>
     )
   }
