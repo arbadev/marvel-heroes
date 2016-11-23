@@ -26,8 +26,6 @@ const heroesData = {
 const baseUrl = 'https://gateway.marvel.com:443/v1/public/'
 const apiKey = '597631c3e5991c5a25a98c37c44b7285'
 
-// characters?apikey=597631c3e5991c5a25a98c37c44b7285
-
 class Board extends Component {
   constructor(props) {
     super(props)
@@ -37,7 +35,7 @@ class Board extends Component {
   }
 
   componentWillMount() {
-    const url = `${baseUrl}characters?limit=10&apikey=${apiKey}`
+    const url = `${baseUrl}characters?limit=10&offset=70&apikey=${apiKey}`
     fetch(url)
     .then((response) => {
       return response.json()
@@ -54,7 +52,9 @@ class Board extends Component {
       <GridTile key={character.id} id={character.id} style={styles.gridTileStyle}>
         <HeroeCard
           superHeroName={character.name}
-          avatar={character.thumbnail.path}/>
+          avatar={character.thumbnail.path}
+          description= {character.description}
+          comics={character.comics}/>
       </GridTile>
     )
   }
@@ -77,14 +77,3 @@ class Board extends Component {
   }
 
   export default Board
-
-  // {tilesData.map((tile) => (
-  //   <GridTile
-  //     key={tile.img}
-  //     title={tile.title}
-  //     subtitle={<span>by <b>{tile.author}</b></span>}
-  //     actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
-  //     >
-  //     <img src={tile.img} />
-  //   </GridTile>
-  // ))}

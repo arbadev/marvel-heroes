@@ -37,6 +37,14 @@ const styles = {
     width: '2vw',
     float: 'left',
     backgroundColor: yellow500
+  },
+  titleStyle: {
+    fontSize:'120%',
+    width:'40%',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+
   }
 }
 
@@ -47,20 +55,14 @@ class HeroeCard extends Component {
       <div style={styles.wrapperStyle}>
 
         <Card style={styles.cardStyle} >
-          <div id="container">
-
-            <div style={styles.cardAvatarStyle}>
-              <Avatar src={`${this.props.avatar}/portrait_medium.jpg`} size={150}/>
-            </div>
-
-            <div>
-              <CardTitle
-                title={this.props.superHeroName}/>
-            </div>
-
+          <div style={styles.blockStyle}>
+            <Avatar style={styles.cardAvatarStyle} src={`${this.props.avatar}/portrait_medium.jpg`} size={150}/>
+            <CardTitle title={this.props.superHeroName} titleStyle={styles.titleStyle}/>
           </div>
         </Card>
-        <CardInfo/>
+        <CardInfo
+          description={this.props.description}
+          comics={this.props.comics}/>
       </div>
     )
   }
