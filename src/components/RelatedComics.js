@@ -7,9 +7,14 @@ const styles = {
   blockStyle: {
     display: 'inline-block',
     width: '40%',
-    margin:'0 auto',
     marginLeft: '5%',
-    fontSize:'80%'
+    fontSize:'80%',
+
+    lineHeight: '1.5em',
+    height: '3em',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis'
   },
   pStyle: {
     textAlign: 'center'

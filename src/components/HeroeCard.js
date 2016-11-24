@@ -10,13 +10,12 @@ const styles = {
   cardAvatarStyle : {
     float: 'left',
     marginRight: '1vw',
-    marginLeft: '1vw',
   },
   cardStyle : {
     marginTop: 5,
     width: '30vw',
     height: '5vh',
-    backgroundColor: yellow500,
+    backgroundColor: grey50,
   },
   cardInfoStyle: {
     float:'left',
@@ -55,9 +54,9 @@ class HeroeCard extends Component {
     return (
       <div style={styles.wrapperStyle}>
 
-        <Card style={styles.cardStyle} >
+        <Card style={styles.cardStyle} zDepth={1}>
           <div style={styles.blockStyle}>
-            <Avatar style={styles.cardAvatarStyle} src={`${this.props.avatar}/portrait_medium.jpg`} size={150}/>
+            <Avatar style={styles.cardAvatarStyle} src={`${this.props.avatar}/portrait_medium.jpg`} size={180}/>
             <CardTitle title={this.props.superHeroName} titleStyle={styles.titleStyle}/>
           </div>
         </Card>
