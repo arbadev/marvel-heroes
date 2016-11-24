@@ -5,6 +5,16 @@ import Board from './Board'
 import ReactPaginate from 'react-paginate';
 import '../styles/Home.scss'
 
+const styles = {
+  paginateStyle : {
+    display: 'inlineBlock',
+    paddingLeft: '15px',
+    paddingRight: '15px'
+  },
+  containerStyle: {
+    margin: 'o auto'
+  }
+}
 
 class Home extends Component {
   render() {
@@ -12,16 +22,18 @@ class Home extends Component {
       <div>
         <SearchBar/>
         <Board/>
-          <ReactPaginate previousLabel={"previous"}
-                         nextLabel={"next"}
-                         breakLabel={<a href="">...</a>}
-                         breakClassName={"break-me"}
-                         marginPagesDisplayed={2}
-                         pageRangeDisplayed={5}
-                         clickCallback={this.handlePageClick}
-                         containerClassName={"pagination"}
-                         subContainerClassName={"pages pagination"}
-                         activeClassName={"active"} />
+        <div style={styles.containerStyle}>
+          <ReactPaginate previousLabel={"<"}
+            nextLabel={">"}
+            breakLabel={<a href="">...</a>}
+            marginPagesDisplayed={0}
+            pageRangeDisplayed={4}
+            clickCallback={this.handlePageClick}
+            breakClassName={"break-me"}
+            containerClassName={"pagination"}
+            subContainerClassName={"pages pagination"}
+            activeClassName={"active"}/>
+        </div>
       </div>
     )
   }

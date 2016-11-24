@@ -10,6 +10,7 @@ const styles = {
   cardAvatarStyle : {
     float: 'left',
     marginRight: '1vw',
+    marginLeft: '1vw',
   },
   cardStyle : {
     marginTop: 5,

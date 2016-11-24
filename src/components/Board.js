@@ -8,6 +8,7 @@ const styles = {
   rootStyle: {
     flexWrap: 'wrap',
     justifyContent: 'space-around',
+    marginLeft: '1vw'
   },
   gridListStyle: {
     width: '64vw',

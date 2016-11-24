@@ -27,7 +27,7 @@ const styles = {
     textOverflow: 'ellipsis',
     display: '-webkit-box',
     WebkitBoxOrient: 'vertical',
-    WebkitLineClamp: 3,
+    WebkitLineClamp: '2',
     marginBottom: '5%'
   },
   titleStyle: {
