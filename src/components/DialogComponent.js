@@ -5,12 +5,14 @@ import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
 import XcomponentTemplate from './XcomponentTemplate'
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton'
-
+import {red500, grey50} from 'material-ui/styles/colors'
 
 const styles = {
   radioButtonStyles: {
     marginTop: 16,
+    backgroundColor: red500
   },
+
 };
 
 
@@ -40,47 +42,63 @@ class DialogComponent extends Component {
   render() {
     const actions = [
       <FlatButton
-        label="Cancel"
+        label="View Comic"
         primary={true}
         onTouchTap={this.handleClose}
-        />,
-      <FlatButton
-        label="Submit"
-        primary={true}
-        keyboardFocused={true}
-        onTouchTap={this.handleClose}
+        backgroundColor={red500}
+        labelColor={grey50}
         />,
     ]
-    let radios = [];
-    let comics = this.props.comics
+    const radios = [];
+    const comics = this.props.comics.items
+    const available = this.props.comics.available
     for (let i = 0; i < comics.length; i++) {
       radios.push(
         <RadioButton
           key={i}
           value={`value${i + 1}`}
-          label={`${this.props.comics[i].name}`}
+          label={`${comics[i].name}`}
           style={styles.radioButtonStyles}
           />
       )
     }
 
-    return (
-      <div>
-        <Dialog
-          title={`Comics - ${this.props.superHeroName}`}
-          actions={actions}
-          modal={false}
-          open={this.props.open}
-          onRequestClose={this.handleClose}
-          autoDetectWindowHeight={true}
-          autoScrollBodyContent={true}
-          >
-          <RadioButtonGroup name="shipSpeed" defaultSelected="not_light">
-            {radios}
-          </RadioButtonGroup>
-        </Dialog>
-      </div>
-    )
+    if (available > 0) {
+      return (
+        <div>
+          <Dialog
+            title={`Comics - ${this.props.superHeroName}`}
+            actions={actions}
+            modal={false}
+            open={this.props.open}
+            onRequestClose={this.handleClose}
+            autoDetectWindowHeight={true}
+            autoScrollBodyContent={true}
+            >
+            <RadioButtonGroup name="shipSpeed">
+              {radios}
+            </RadioButtonGroup>
+          </Dialog>
+        </div>
+      )
+    }
+    else {
+      return (
+        <div>
+          <Dialog
+            title={`Comics - ${this.props.superHeroName}`}
+            modal={false}
+            open={this.props.open}
+            onRequestClose={this.handleClose}
+            autoDetectWindowHeight={true}
+            autoScrollBodyContent={true}
+            >
+            This character doesn't have any related comics...
+
+          </Dialog>
+         </div>
+      )
+    }
   }
 }
 

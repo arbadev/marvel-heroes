@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card'
 import RaisedButton from 'material-ui/RaisedButton'
-import {red500, grey50, yellow500} from 'material-ui/styles/colors'
+import {red500, grey50} from 'material-ui/styles/colors'
 import RelatedComics from './RelatedComics'
 import DialogComponent from './DialogComponent'
 
@@ -20,7 +20,6 @@ const styles = {
   blockStyle: {
     display: 'inline-block',
     width: '40%',
-    backgroundColor:yellow500,
     margin:'0 auto',
     marginLeft: '5%',
     fontSize:'80%'
@@ -80,7 +79,7 @@ class CardInfo extends Component {
                 open={this.state.visibleDialog}
                 onHandleClose={this.handleClose}
                 description={this.props.description}
-                comics={this.props.comics.items}
+                comics={this.props.comics}
                 superHeroName={this.props.superHeroName}/>
             </RaisedButton>
           </div>
