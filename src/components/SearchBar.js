@@ -4,20 +4,29 @@ import '../styles/SearchBar.scss'
 import AppBar from 'material-ui/AppBar'
 import AutoComplete from 'material-ui/AutoComplete'
 import FontIcon from 'material-ui/FontIcon'
+import {grey50, grey900} from 'material-ui/styles/colors'
 
 
-const iconStyles = {
-  marginRight: 24,
-  marginTop: 12,
-  fontSize: '24px'
-}
-const brandStyle = {
-  height: 50,
-  width: 100
-}
-const searchStyle = {
-  marginTop: 10,
-  fontSize: '24px'
+const styles = {
+  iconStyles : {
+    marginRight: 24,
+    marginTop: 12,
+    fontSize: '24px'
+  },
+  brandStyle : {
+    height: 50,
+    width: 100
+  },
+  autoCompleteStyle : {
+    color: grey50,
+
+  },
+  appBarStyle: {
+    backgroundColor: grey900
+  },
+  hintTextStyle: {
+    color: grey50
+  }
 }
 
 class SearchBar extends Component {
@@ -29,22 +38,21 @@ class SearchBar extends Component {
     }
   }
 
-
   render() {
     return (
       <div>
         <AppBar
-          iconElementLeft={<img src="../public/Marvel_logo.png" style={brandStyle}/> }
+          iconElementLeft={<img src="../public/Marvel_logo.png" style={styles.brandStyle}/> }
+          style={styles.appBarStyle}
           >
           <div className="inner">
             <AutoComplete
               hintText="Search Character..."
               dataSource={this.state.dataSource}
               onUpdateInput={this.handleUpdateInput}
-              style={searchStyle}
+              inputStyle={styles.autoCompleteStyle}
               />
 
-            <FontIcon className="material-icons" style={iconStyles}>search</FontIcon>
           </div>
         </AppBar>
       </div>

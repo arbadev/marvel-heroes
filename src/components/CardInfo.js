@@ -10,6 +10,7 @@ const styles = {
     width: '30vw',
     height: '40vh',
     backgroundColor: 'white',
+    zDepth: 0
   },
   wrapperStyle: {
     width:'100%'
@@ -39,7 +40,7 @@ class CardInfo extends Component {
   render() {
     return (
       <div>
-        <Card style={styles.cardStyle} zDepth={1}>
+        <Card style={styles.cardStyle} zDepth={0}>
           <div>
             <CardText style={styles.cardTextStyle}>
               {this.props.description}
