@@ -3,6 +3,8 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import RaisedButton from 'material-ui/RaisedButton'
 import {red500, grey50, yellow500} from 'material-ui/styles/colors'
 import RelatedComics from './RelatedComics'
+import DialogComponent from './DialogComponent'
+
 
 const styles = {
   cardStyle : {
@@ -37,6 +39,29 @@ const styles = {
 }
 
 class CardInfo extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      visibleDialog: false,
+    }
+    this.handleOpen = this.handleOpen.bind(this)
+    this.handleClose = this.handleClose.bind(this)
+  }
+
+  handleOpen() {
+    this.setState({visibleDialog: true})
+  }
+
+  handleClose() {
+    this.setState({visibleDialog: false})
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.visibleDialog && !prevState.visibleDialog) {
+      this.refs.dialogComponent.focus()
+    }
+  }
+
   render() {
     return (
       <div>
@@ -47,7 +72,14 @@ class CardInfo extends Component {
             </CardText>
             <RaisedButton label="View more"
               backgroundColor={red500}
-              labelColor={grey50}/>
+              labelColor={grey50}
+              onTouchTap={this.handleOpen}
+              >
+
+              <DialogComponent ref="dialogComponent"
+                open={this.state.visibleDialog}
+                onHandleClose={this.handleClose}/>
+            </RaisedButton>
           </div>
           <CardTitle title="Related Comics" titleStyle={styles.titleStyle}/>
           <RelatedComics comics={this.props.comics}/>
