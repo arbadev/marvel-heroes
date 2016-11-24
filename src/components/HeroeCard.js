@@ -57,7 +57,8 @@ class HeroeCard extends Component {
         </Card>
         <CardInfo
           description={this.props.description}
-          comics={this.props.comics}/>
+          comics={this.props.comics}
+          superHeroName={this.props.superHeroName}/>
       </div>
     )
   }

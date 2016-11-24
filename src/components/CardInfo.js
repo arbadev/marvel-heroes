@@ -78,7 +78,10 @@ class CardInfo extends Component {
 
               <DialogComponent ref="dialogComponent"
                 open={this.state.visibleDialog}
-                onHandleClose={this.handleClose}/>
+                onHandleClose={this.handleClose}
+                description={this.props.description}
+                comics={this.props.comics.items}
+                superHeroName={this.props.superHeroName}/>
             </RaisedButton>
           </div>
           <CardTitle title="Related Comics" titleStyle={styles.titleStyle}/>

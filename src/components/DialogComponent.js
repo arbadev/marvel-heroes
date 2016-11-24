@@ -3,6 +3,16 @@ import ReactDOM from 'react-dom'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
+import XcomponentTemplate from './XcomponentTemplate'
+import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton'
+
+
+const styles = {
+  radioButtonStyles: {
+    marginTop: 16,
+  },
+};
+
 
 class DialogComponent extends Component {
 
@@ -22,6 +32,11 @@ class DialogComponent extends Component {
     this.props.onHandleClose()
   }
 
+  getRadios() {
+    return radios
+  }
+
+
   render() {
     const actions = [
       <FlatButton
@@ -36,19 +51,33 @@ class DialogComponent extends Component {
         onTouchTap={this.handleClose}
         />,
     ]
-
+    let radios = [];
+    let comics = this.props.comics
+    for (let i = 0; i < comics.length; i++) {
+      radios.push(
+        <RadioButton
+          key={i}
+          value={`value${i + 1}`}
+          label={`${this.props.comics[i].name}`}
+          style={styles.radioButtonStyles}
+          />
+      )
+    }
 
     return (
       <div>
         <Dialog
-          ref="dialog"
-          title="Dialog With Actions"
+          title={`Comics - ${this.props.superHeroName}`}
           actions={actions}
           modal={false}
           open={this.props.open}
           onRequestClose={this.handleClose}
+          autoDetectWindowHeight={true}
+          autoScrollBodyContent={true}
           >
-          The actions in this window were passed in as an array of React objects.
+          <RadioButtonGroup name="shipSpeed" defaultSelected="not_light">
+            {radios}
+          </RadioButtonGroup>
         </Dialog>
       </div>
     )

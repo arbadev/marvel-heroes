@@ -15,7 +15,7 @@ const styles = {
   },
   gridListStyle: {
     width: '64vw',
-    height: '265vh',
+    height: '260vh',
     overflowY: 'auto',
   },
   gridTileStyle: {
@@ -44,6 +44,8 @@ class Board extends Component {
     },
     this.handlePageClick = this.handlePageClick.bind(this)
   }
+
+
 
   componentWillMount() {
     this.loadServerCharacters()
@@ -78,40 +80,36 @@ class Board extends Component {
   handlePageClick(data) {
     let selected = data.selected
     let offset = Math.ceil(selected * 10)
-    this.setState({
-      offset
-    },
-    () => {
+    this.setState({ offset }, () => {
       this.loadServerCharacters()
-    }
-  )
-}
+    })
+  }
 
-render() {
-  return (
-    <div style={styles.rootStyle}>
-      <GridList
-        cellHeight={180}
-        style={styles.gridListStyle}
-        >
-        { this.state.characters.map(this.eachCard) }
+  render() {
+    return (
+      <div style={styles.rootStyle}>
+        <GridList
+          cellHeight={180}
+          style={styles.gridListStyle}
+          >
+          { this.state.characters.map(this.eachCard) }
 
-      </GridList>
-      <ReactPaginate
-        previousLabel={"<"}
-        nextLabel={">"}
-        breakLabel={<a href="">...</a>}
-        pageNum={this.state.pageNum}
-        marginPagesDisplayed={0}
-        pageRangeDisplayed={4}
-        clickCallback={this.handlePageClick}
-        breakClassName={"break-me"}
-        containerClassName={"pagination"}
-        subContainerClassName={"pages pagination"}
-        activeClassName={"active"} />
-    </div>
-  )
-}
+        </GridList>
+        <ReactPaginate
+          previousLabel={"<"}
+          nextLabel={">"}
+          breakLabel={<a>...</a>}
+          pageNum={this.state.pageNum}
+          marginPagesDisplayed={0}
+          pageRangeDisplayed={4}
+          clickCallback={this.handlePageClick}
+          breakClassName={"break-me"}
+          containerClassName={"pagination"}
+          subContainerClassName={"pages pagination"}
+          activeClassName={"active"} />
+      </div>
+    )
+  }
 }
 
 export default Board
