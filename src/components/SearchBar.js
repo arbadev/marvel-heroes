@@ -5,6 +5,7 @@ import AppBar from 'material-ui/AppBar'
 import AutoComplete from 'material-ui/AutoComplete'
 import FontIcon from 'material-ui/FontIcon'
 import {grey50, grey900} from 'material-ui/styles/colors'
+import characters from '../characters'
 
 
 const styles = {
@@ -32,11 +33,18 @@ const styles = {
 class SearchBar extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
-      dataSource: [],
-    }
+      dataSource: characters,
+      inputValue : ''
+    },
+    this.onUpdateInput = this.onUpdateInput.bind(this)
   }
+
+  onUpdateInput(inputValue) {
+    this.setState({
+      inputValue: inputValue
+    })
+   }
 
   render() {
     return (
@@ -49,7 +57,7 @@ class SearchBar extends Component {
             <AutoComplete
               hintText="Search Character..."
               dataSource={this.state.dataSource}
-              onUpdateInput={this.handleUpdateInput}
+              onUpdateInput={this.onUpdateInput}
               inputStyle={styles.autoCompleteStyle}
               />
 

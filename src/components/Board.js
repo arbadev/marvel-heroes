@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import {GridList, GridTile} from 'material-ui/GridList'
 import HeroeCard from './HeroeCard'
 import 'whatwg-fetch'
-import ReactPaginate from 'react-paginate';
-import '../styles/Home.scss'
+import ReactPaginate from 'react-paginate'
+import {grey200, grey900} from 'material-ui/styles/colors'
+import '../styles/Board.scss'
 
 
 
@@ -23,12 +24,14 @@ const styles = {
     height: '50vh',
   },
   paginateStyle : {
-    display: 'inlineBlock',
-    paddingLeft: '15px',
-    paddingRight: '15px'
+    width: '50%',
+    margin: '0 auto',
+    active: {
+      backgroundColor: grey200
+    }
   },
   containerStyle: {
-    margin: 'o auto'
+    margin: '0 auto'
   }
 }
 
@@ -95,18 +98,20 @@ class Board extends Component {
           { this.state.characters.map(this.eachCard) }
 
         </GridList>
-        <ReactPaginate
-          previousLabel={"<"}
-          nextLabel={">"}
-          breakLabel={<a>...</a>}
-          pageNum={this.state.pageNum}
-          marginPagesDisplayed={0}
-          pageRangeDisplayed={4}
-          clickCallback={this.handlePageClick}
-          breakClassName={"break-me"}
-          containerClassName={"pagination"}
-          subContainerClassName={"pages pagination"}
-          activeClassName={"active"} />
+        <div className='paginationContainer' style={styles.paginateStyle}>
+          <ReactPaginate
+            previousLabel={"<"}
+            nextLabel={">"}
+            breakLabel={<a>...</a>}
+            pageNum={this.state.pageNum}
+            marginPagesDisplayed={0}
+            pageRangeDisplayed={4}
+            clickCallback={this.handlePageClick}
+            breakClassName={"break-me"}
+            containerClassName={"pagination"}
+            subContainerClassName={"pages pagination"}
+            activeClassName={"active"} />
+        </div>
       </div>
     )
   }

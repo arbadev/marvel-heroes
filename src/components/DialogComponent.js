@@ -10,9 +10,7 @@ import {red500, grey50} from 'material-ui/styles/colors'
 const styles = {
   radioButtonStyles: {
     marginTop: 16,
-    backgroundColor: red500
-  },
-
+  }
 };
 
 
@@ -45,7 +43,6 @@ class DialogComponent extends Component {
         label="View Comic"
         primary={true}
         onTouchTap={this.handleClose}
-        backgroundColor={red500}
         labelColor={grey50}
         />,
     ]

@@ -8,7 +8,7 @@ import {red500, grey900, grey50} from 'material-ui/styles/colors'
 
 const muiTheme = getMuiTheme({
   palette: {
-    primary1Color: grey50
+    primary1Color: red500
   },
   appBar: {
   },
