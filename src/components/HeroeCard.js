@@ -5,8 +5,7 @@ import Avatar from 'material-ui/Avatar'
 import {red500, grey100} from 'material-ui/styles/colors'
 import Paper from 'material-ui/Paper'
 import CardInfo from './CardInfo'
-// ajustarte a los standares dela organizacion en la que trabajas, o en el caso que la organizacion no tenga
-//seguir los principios de cada uno de los paradicmas que se utilizan
+
 const styles = {
   cardAvatarStyle : {
     float: 'left',
