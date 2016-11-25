@@ -28,4 +28,4 @@ cd projectName
 npm install
 
 # Start the server with
-npm start  // url: 'http://localhost:3000/'
+npm start  // url: 'http://localhost:8080/'
