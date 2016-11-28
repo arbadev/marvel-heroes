@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
-import XcomponentTemplate from './XcomponentTemplate'
+import ComicDetail from './ComicDetail'
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton'
 import {red500, grey50} from 'material-ui/styles/colors'
 
@@ -20,81 +20,118 @@ class DialogComponent extends Component {
     super(props)
     this.state = {
       open: false,
-      watchingComic: false
+      watchingComic: false,
+      selectedComic: ''
     },
     this.handleClose = this.handleClose.bind(this)
+    this.handleViewComic = this.handleViewComic.bind(this)
+    this.handleSelectedComic = this.handleSelectedComic.bind(this)
+    this._onChange = this._onChange.bind(this)
   }
 
   focus() {
     ReactDOM.findDOMNode(this.refs.dialog)
   }
 
+  _onChange(e, selected) {
+    // let value = this._radio.getSelectedValue()
+    this.setState({ selectedComic: selected })
+  }
+
   handleClose() {
     this.props.onHandleClose()
+    this.setState({
+      watchingComic: false
+    });
   }
 
-  getRadios() {
-    return radios
+  handleViewComic() {
+    this.setState({watchingComic: true})
+
   }
 
+  handleSelectedComic(selectedComic) {
+    this.setState({selectedComic})
+  }
 
   render() {
-    const actionsClose = [
+    const actionViewMore = [
       <FlatButton
         label="View Comic"
         primary={true}
-        onTouchTap={this.handleClose}
-        labelColor={grey50}
+        onTouchTap={this.handleViewComic}
         />,
     ]
-    const radios = [];
-    const comics = this.props.comics.items
     const available = this.props.comics.available
-    for (let i = 0; i < comics.length; i++) {
-      radios.push(
+
+    const radios = this.props.comics.items.map((comics,index) => {
+      return (
         <RadioButton
-          key={i}
-          value={`value${i + 1}`}
-          label={`${comics[i].name}`}
+          key={index}
+          value={`${comics.name}`}
+          label={`${comics.name}`}
           style={styles.radioButtonStyles}
           />
       )
-    }
+    })
 
-    if (available > 0) {
-      return (
-        <div>
-          <Dialog
-            title={`Comics - ${this.props.superHeroName}`}
-            actions={actions}
-            modal={false}
-            open={this.props.open}
-            onRequestClose={this.handleClose}
-            autoDetectWindowHeight={true}
-            autoScrollBodyContent={true}
-            >
-            <RadioButtonGroup name="shipSpeed">
-              {radios}
-            </RadioButtonGroup>
-          </Dialog>
-        </div>
-      )
+    if (!this.state.watchingComic) {
+
+      if (available > 0) {
+        return (
+          <div>
+            <Dialog
+              title={`Comics - ${this.props.superHeroName}`}
+              actions={actionViewMore}
+              modal={false}
+              open={this.props.open}
+              onRequestClose={this.handleClose}
+              autoDetectWindowHeight={true}
+              autoScrollBodyContent={true}
+              >
+              <RadioButtonGroup
+                ref={ (c) => this._radio = c }
+                name='ComicRadioButtongroup'
+                onChange={this._onChange}>
+                {radios}
+              </RadioButtonGroup>
+            </Dialog>
+          </div>
+        )
+      }
+      else {
+        return (
+          <div>
+            <Dialog
+              title={`Comics - ${this.props.superHeroName}`}
+              modal={false}
+              open={this.props.open}
+              onRequestClose={this.handleClose}
+              autoDetectWindowHeight={true}
+              autoScrollBodyContent={true}
+              >
+              This character doesn't have any related comics...
+
+            </Dialog>
+          </div>
+        )
+      }
     }
     else {
       return (
         <div>
           <Dialog
-            title={`Comics - ${this.props.superHeroName}`}
+            title={this.state.selectedComic}
             modal={false}
             open={this.props.open}
             onRequestClose={this.handleClose}
             autoDetectWindowHeight={true}
             autoScrollBodyContent={true}
             >
-            This character doesn't have any related comics...
+            <ComicDetail />
 
           </Dialog>
-         </div>
+        </div>
       )
     }
   }
