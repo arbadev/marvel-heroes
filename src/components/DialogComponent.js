@@ -20,6 +20,7 @@ class DialogComponent extends Component {
     super(props)
     this.state = {
       open: false,
+      watchingComic: false
     },
     this.handleClose = this.handleClose.bind(this)
   }
@@ -38,7 +39,7 @@ class DialogComponent extends Component {
 
 
   render() {
-    const actions = [
+    const actionsClose = [
       <FlatButton
         label="View Comic"
         primary={true}
