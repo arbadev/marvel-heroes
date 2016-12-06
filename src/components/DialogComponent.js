@@ -21,11 +21,10 @@ class DialogComponent extends Component {
     this.state = {
       open: false,
       watchingComic: false,
-      selectedComic: ''
+      selectedComicURI: ''
     },
     this.handleClose = this.handleClose.bind(this)
     this.handleViewComic = this.handleViewComic.bind(this)
-    this.handleSelectedComic = this.handleSelectedComic.bind(this)
     this._onChange = this._onChange.bind(this)
   }
 
@@ -35,7 +34,7 @@ class DialogComponent extends Component {
 
   _onChange(e, selected) {
     // let value = this._radio.getSelectedValue()
-    this.setState({ selectedComic: selected })
+    this.setState({ selectedComicURI: selected })
   }
 
   handleClose() {
@@ -48,10 +47,6 @@ class DialogComponent extends Component {
   handleViewComic() {
     this.setState({watchingComic: true})
 
-  }
-
-  handleSelectedComic(selectedComic) {
-    this.setState({selectedComic})
   }
 
   render() {
@@ -68,7 +63,7 @@ class DialogComponent extends Component {
       return (
         <RadioButton
           key={index}
-          value={`${comics.name}`}
+          value={`${comics.resourceURI}`}
           label={`${comics.name}`}
           style={styles.radioButtonStyles}
           />
@@ -120,17 +115,9 @@ class DialogComponent extends Component {
     else {
       return (
         <div>
-          <Dialog
-            title={this.state.selectedComic}
-            modal={false}
-            open={this.props.open}
-            onRequestClose={this.handleClose}
-            autoDetectWindowHeight={true}
-            autoScrollBodyContent={true}
-            >
-            <ComicDetail />
-
-          </Dialog>
+          <ComicDetail
+            resourceURI={this.state.selectedComicURI}
+            onHandleClose={this.handleClose}/>
         </div>
       )
     }

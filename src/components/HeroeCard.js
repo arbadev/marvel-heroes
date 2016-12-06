@@ -51,7 +51,7 @@ class HeroeCard extends Component {
 
         <Card style={styles.cardStyle} zDepth={0}>
           <div style={styles.blockStyle}>
-            <Avatar style={styles.cardAvatarStyle} src={`${this.props.avatar}/portrait_medium.jpg`} size={170}/>
+            <Avatar style={styles.cardAvatarStyle} src={`${this.props.avatar}/standard_medium.jpg`} size={170}/>
             <CardTitle title={this.props.superHeroName} titleStyle={styles.titleStyle}/>
           </div>
         </Card>
